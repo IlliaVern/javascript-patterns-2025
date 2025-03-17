@@ -1,7 +1,5 @@
 import fs from "node:fs/promises";
 
-const data = await fs.readFile("./data.csv", "utf-8");
-
 class City {
   constructor(cityData) {
     if (!cityData) {
@@ -92,6 +90,12 @@ class CityDataProcessor {
   }
 }
 
-const processor = new CityDataProcessor(data);
+try {
+  const data = await fs.readFile("./data.csv", "utf-8");
 
-processor.process();
+  const processor = new CityDataProcessor(data);
+
+  processor.process();
+} catch (error) {
+  console.error("Error processing file:", error.message);
+}
