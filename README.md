@@ -1,44 +1,115 @@
-## javascript-patterns-2025
+# JavaScript Programming Paradigms Example
 
-### Classes Documentation
+This project demonstrates three different programming paradigms implemented in JavaScript to process and display city data:
+- Functional Programming (1-functional.js)
+- Object-Oriented Programming (2-oop.js)
+- Procedural Programming (3-procedural.js)
 
-The `2-oop.js` file contains two main classes for processing city data:
+## Overview
 
-#### City Class
-A class representing a city with various properties including population, area, and density.
+The project reads city data from a CSV file and processes it to display information about cities, including their population, area, density, and a normalized density score. Each implementation achieves the same result using different programming paradigms.
 
-Constructor parameters:
-- `cityData` (string): Comma-separated string containing city data in format: "city,population,area,density,country"
+## Implementations
 
-Methods:
-- `normalize(maxDensity)`: Calculates normalized density relative to the maximum density
-- `format()`: Returns formatted string representation of city data
+### 1. Functional Implementation (1-functional.js)
 
-#### CityDataProcessor Class
-A class for processing and displaying city data.
+The functional implementation uses modern JavaScript features and functional programming concepts:
+- Uses array methods like `map`, `sort`, and spread operator
+- Emphasizes immutable data transformation
+- Chains operations using method chaining
+- Avoids explicit loops and state mutations
 
-Constructor parameters:
-- `rawData` (string): Raw data containing header row and city data rows
-
-Methods:
-- `process()`: Processes the raw data by parsing, normalizing, sorting, and displaying cities
-
-Example usage:
-```javascript
-import fs from "node:fs/promises";
-
-// Read city data from file
-const rawData = await fs.readFile("cities.txt", "utf8");
-
-// Create processor instance and process data
-const processor = new CityDataProcessor(rawData);
-processor.process();
+To run:
+```bash
+npm run functional
 ```
 
-Input data format should be:
+### 2. Object-Oriented Implementation (2-oop.js)
+
+The OOP implementation uses classes and encapsulation:
+- `City` class for data encapsulation
+- `CityDataProcessor` class for handling data processing
+- Private methods using `#` prefix
+- Clear separation of concerns
+- Type validation and error handling
+
+Classes and Methods:
+- `City` class:
+  - Constructor: Takes city data string in format "city,population,area,density,country"
+  - `normalize(maxDensity)`: Calculates normalized density
+  - `format()`: Returns formatted string representation
+- `CityDataProcessor` class:
+  - Constructor: Takes raw data input
+  - Private methods: `#parse()`, `#calculateMaxDensity()`, `#normalize()`, `#sort()`, `#display()`
+  - Public method: `process()` - Executes the complete data processing workflow
+
+To run:
+```bash
+npm run oop
 ```
-City,Population,Area,Density,Country
-Tokyo,37400068,8231,4544,Japan
-Delhi,28514000,2240,12729,India
-...
+
+### 3. Procedural Implementation (3-procedural.js)
+
+The procedural implementation uses traditional programming concepts:
+- Structured programming with functions
+- Step-by-step data processing
+- Global constants
+- Traditional loops and control structures
+- Clear function naming and organization
+
+Main Functions:
+- `main()`: Orchestrates the complete workflow
+- `readDataFile()`: Reads CSV data
+- `parseData()`: Converts raw data to structured format
+- `processCities()`: Handles data transformation
+- `displayResults()`: Outputs formatted results
+
+To run:
+```bash
+npm run procedural
 ```
+
+## Project Structure
+
+```
+├── 1-functional.js    # Functional programming implementation
+├── 2-oop.js          # Object-oriented programming implementation
+├── 3-procedural.js   # Procedural programming implementation
+├── data.csv          # Input data file
+└── package.json      # Project configuration and scripts
+```
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/IlliaVern/javascript-patterns-2025.git
+```
+
+2. Run any implementation:
+```bash
+npm run functional   # For functional implementation
+npm run oop         # For OOP implementation
+npm run procedural  # For procedural implementation
+```
+
+## Implementation Comparison
+
+Each implementation has its own strengths:
+
+- **Functional**: Best for data transformation pipelines and maintaining immutability. Code is concise and expressive. Great for handling data streams and parallel processing.
+- **OOP**: Excellent for complex systems with clear entities and behaviors. Provides strong encapsulation and maintainability. Ideal for modeling real-world objects and their interactions.
+- **Procedural**: Simple to understand and debug. Good for straightforward, sequential operations. Perfect for scripts and smaller applications.
+
+## Technical Requirements
+
+- Node.js 22.18.3 or higher
+- ES Modules support (package.json has "type": "module")
+
+## Author
+
+Illia Vernygora
+
+## License
+
+ISC
