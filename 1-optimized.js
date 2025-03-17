@@ -1,4 +1,6 @@
-const data = require("./data.csv");
+import fs from "node:fs/promises";
+
+const data = await fs.readFile("./data.csv", "utf-8");
 
 const [_header, ...cityData] = data.trim().split("\n");
 
