@@ -4,6 +4,9 @@
   "description": "Javascript Patterns 2025 Task",
   "type": "module",
   "main": "2-classes.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "functional": "node 1-functional.js",
