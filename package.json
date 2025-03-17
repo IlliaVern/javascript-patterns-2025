@@ -6,7 +6,8 @@
   "main": "2-classes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node 2-classes.js"
+    "functional": "node 1-functional.js",
+    "oop": "node 2-oop.js"
   },
   "repository": {
     "type": "git",

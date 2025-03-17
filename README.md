@@ -2,7 +2,7 @@
 
 ### Classes Documentation
 
-The `2-classes.js` file contains two main classes for processing city data:
+The `2-oop.js` file contains two main classes for processing city data:
 
 #### City Class
 A class representing a city with various properties including population, area, and density.
