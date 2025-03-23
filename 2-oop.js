@@ -1,5 +1,7 @@
 import fs from "node:fs/promises";
 
+const PARTS_LENGTH = 5;
+
 class City {
   constructor(cityData) {
     if (!cityData) {
@@ -7,7 +9,7 @@ class City {
     }
 
     const parts = cityData.split(",");
-    if (parts.length !== 5) {
+    if (parts.length !== PARTS_LENGTH) {
       throw new Error("Invalid city data format");
     }
 
